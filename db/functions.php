@@ -1,10 +1,9 @@
 <?php
     
-    require_once 'db/setup.php';
+    //require_once 'db/setup.php';
     function dropdown_list($id)
     {
-        $dropdown_qh= new QueryHandler(getConn());
-        $dd_result=$dropdown_qh->runQuery("SELECT name as cat,cost FROM products_features pf inner join features f on pf.feature_id=f.id where product_id ='{$id}' order by cost");
+        $dd_result=App::get('database')->runQuery("SELECT name as cat,cost FROM products_features pf inner join features f on pf.feature_id=f.id where product_id ='{$id}' order by cost");
         
         return $dd_result;
     }

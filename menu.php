@@ -49,9 +49,10 @@ and open the template in the editor.
                             <span id="fill"></span>
                         </div>
                         <?php
-                            $result=$qh->runQuery("SELECT * from products;");
+                            $result=App::get('database')->runQuery("SELECT * from products;");
                             $index=0;
-                            while($row= mysqli_fetch_array($result)){
+                            foreach($result as $row)
+                            {
                                 if($index%3==0)//condition to check if 3 products have been placed. If so, the new product is placed in the next row
                                 {
                                     $start_div="<div class='row'>\n";
@@ -75,15 +76,12 @@ and open the template in the editor.
                                                        $list=dropdown_list($row["id"]);//returns a list of subcategories and their cost
                                                 ?>
                                                     <select class="form-control" name="list">
-                                                <?php
-                                                       while($item= mysqli_fetch_array($list))
-                                                       {    //to print dropdown list
+                                                <?php foreach($list as $item): //to print dropdown list
                                                 ?>
                                                         <option value="<?php echo "{$row['id']}.{$item['cost']}";?>"><?php echo $item["cat"]."    Rs.".$item["cost"]; ?></option>
-                                                <?php  } ?>
+                                                <?php  endforeach; ?>
                                                     </select>
                                                 <?php 
-                                                
                                                     }
                                                     else//prints items which do not have subcategories
                                                     {
@@ -101,8 +99,8 @@ and open the template in the editor.
                         <?php
                                 //echo (($index-1)%3==0)?"</div>\n":"";
                                 $index++;
-                                    }
-                                echo "</div>";
+                            }
+                            echo "</div>";
                         ?>
                     </div>
                 </div>

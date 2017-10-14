@@ -1,4 +1,9 @@
 <?php
+
+    require_once 'Connection.php';
+    require_once 'App.php';
+    require_once 'QueryHandler.php';
+
     session_start();
 
     $_SESSION['timeout'] = time();
@@ -18,46 +23,21 @@
 
     $_SESSION['timeout']=time();*/
     
-    require_once 'info.php';
+
+    App::bind('config',require 'config.php');
     
-    $connection=new Connect($host, $database);
-    $conn=$connection->con();
-    $qh= new QueryHandler($conn);
+    $conn=Connection::make(App::get('config'));
 
-    function getConn()
+    App::bind('database', new QueryHandler($conn));
+    
+    
+    class IdGen 
     {
-        global $connection;
-        return $connection->con();
-    }
-    class Connect {
-
-        private $host,$user,$password,$database;
-        function __construct($host,$database,$user="root",$password="") {
-            $this->host=$host;
-            $this->user=$user;
-            $this->password=$password;
-            $this->database=$database;
-        }
-        function con(){
-            return mysqli_connect($this->host, $this->user, $this->password, $this->database);//returns the connection object 
-        }
-    }
-    class QueryHandler {
-
-        private $result,$conn;
-        function __construct($conn) {
-            $this->conn=$conn;
-        }
-        function runQuery($query){
-            $this->result=mysqli_query($this->conn, $query) or die(mysqli_error($this->conn));
-            return $this->result;
-        }
-}
-    class IdGen {
         
         static $id=0;
         private $id_val;
-        function __construct() {
+        function __construct() 
+        {
             $this->id_val="hb_".self::$id;
             self::$id++;
         }
