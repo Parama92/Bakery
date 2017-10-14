@@ -1,0 +1,7 @@
+Stuff i need to do:
+1. set $user_data to user related data using cookie.
+2. create a page for prod.php without '?id=' or handle error if non existent id is entered.
+3. cart page.
+4. order confirmation page.
+5. create error page.
+6. keep option for people who disable cookies.
