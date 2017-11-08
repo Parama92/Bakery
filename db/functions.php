@@ -3,7 +3,8 @@
     require_once 'setup.php';
     function dropdown_list($id)
     {
-        $dd_result=App::get('database')->runQuery("SELECT name as cat,cost FROM products_features pf inner join features f on pf.feature_id=f.id where product_id ='{$id}' order by cost");
+        $data=array($id);
+        $dd_result=App::get('database')->runQuery("SELECT name as cat,cost FROM products_features pf inner join features f on pf.feature_id=f.id where product_id =? order by cost",$data);
         
         return $dd_result;
     }
@@ -22,13 +23,13 @@
         }
         else
         {
-            header("location: error.php?error='db'");
+            //handle error somehow.
         }
         
-        $cart_check=App::get('database')->runQuery("SELECT id,quantity FROM cart WHERE product_id={$pid} AND feature_id={$fid} AND user_data='{$user_data}';");
+        $cart_check=App::get('database')->runQuery("SELECT id,quantity FROM cart WHERE product_id=? AND feature_id=? AND user_data=?;",array($pid,$fid,$user_data));
         if(count($cart_check)==0)
         {
-            App::get('database')->runQuery("INSERT INTO cart (product_id,feature_id,user_data,expired) VALUES ('{$pid}','{$fid}','{$user_data}','$expired');");
+            App::get('database')->runQuery("INSERT INTO cart (product_id,feature_id,user_data,expired) VALUES (?,?,?,?);",array($pid,$fid,$user_data,$expired));
         }
         else
         {
@@ -37,9 +38,9 @@
         }
     }
     
-    function remove_from_cart($cid) 
+    function change_cart($cid,$quant) 
     {
-        $cart_search=App::get('database')->runQuery("SELECT id FROM cart WHERE id=$cid;");
+        $cart_search=App::get('database')->runQuery("SELECT id FROM cart WHERE id=?;",array($cid));
         
         if(count($cart_search)==0)
         {
@@ -47,7 +48,13 @@
         }
         else
         {
-            App::get('database')->runQuery("DELETE FROM cart WHERE id=$cid;");
+            if($quant==0)
+                App::get('database')->runQuery("DELETE FROM cart WHERE id=?;",array($cid));
+            else
+            {
+                App::get('database')->runQuery("UPDATE cart SET quantity=? WHERE id=?;",array($quant,$cid));
+            }
         }
     }
+    
 ?>

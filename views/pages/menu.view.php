@@ -20,12 +20,12 @@ and open the template in the editor.
                     <h1>OUR MENU</h1>
                     <hr/>
                 </div>
-                <div class="spacing">
+                <div class="spacing content">
                     <!--choosing the grid to place the products-->
-                    <div class="flex_container col-lg-8 col-lg-offset-2">
-                        <!-- <div id="added-to-cart" class="hide-it">
+                    <div class="flex_container">
+                        <div id="added-to-cart" class="hide-it">
                             <span id="fill"></span>
-                        </div> -->
+                        </div>
                         <?php foreach($result as $row) : ?>
                             <div class="flex_box">
                                 <a href="prod.php?id=<?php echo $row["id"]; ?>">

@@ -8,11 +8,11 @@
         {
             $this->conn=$conn;
         }
-        function runQuery($query)
+        function runQuery($query,$data=[])
         {
         
             $statement=$this->conn->prepare($query);
-            $statement->execute();
+            $statement->execute($data);
 
             $this->result=$statement->fetchAll();
             return $this->result;

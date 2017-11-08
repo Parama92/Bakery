@@ -1,22 +1,6 @@
 <?php
     require_once 'db/setup.php';
     
-    $id_gen=new IdGen();
-    $user_id=$id_gen->getId();
-    if(!isset($_COOKIE["id"]))
-    {
-        $cookie_id="c".$user_id;
-        setcookie("id", $cookie_id, time()+3600*24*60);
-        $_SESSION["user_id"]=$cookie_id;
-    }
-    elseif(isset($_COOKIE["id"]))
-    {
-        $_SESSION["user_id"]=$_COOKIE["id"];
-    }
-    else
-    {
-        $_SESSION["user_id"]="u".$user_id;
-    }
 ?>
 <!DOCTYPE html>
 <!--
@@ -46,10 +30,11 @@ and open the template in the editor.
                     </p>
                 </div>
             </div>
-            <?php
-                include_once 'views/layout/footer.php';
-            ?>
         </div>
+        <?php
+            include_once 'views/layout/footer.php';
+        ?>
+        <script src="public/script.js"></script>
         <script>
             
             $(function(){

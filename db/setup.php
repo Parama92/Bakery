@@ -3,48 +3,32 @@
     require_once 'Connection.php';
     require_once 'App.php';
     require_once 'QueryHandler.php';
+    require_once 'IdGen.php';
+    require_once "cookies/UpdateUser.php";
+    require_once "cookies/CookieHandler.php";
+    require_once "cookies/NewCookieHandler.php";
+    require_once "cookies/DisabledCookieHandler.php";
+    require_once "cookies/OldCookieHandler.php";
 
     session_start();
 
-    $_SESSION['timeout'] = time();
+    $now=time();
     
-    if(($_SESSION['timeout']+60*10)<time())
+    if(isset($_SESSION["discard_after"]) && ($now>$_SESSION["discard_after"]))
     {
-        session_destroy(); 
+        session_destroy();
         header("Location: index.php");
     }
-    /*$session_life = time() - $_SESSION['timeout'];
-
-    if($session_life > $inactive)
-    {  
-        session_destroy(); 
-        header("Location: index.php");     
-    }
-
-    $_SESSION['timeout']=time();*/
     
-
     App::bind('config',require 'config.php');
     
     $conn=Connection::make(App::get('config'));
 
     App::bind('database', new QueryHandler($conn));
+
+    $cookie=CookieHandler::getInstance();
     
-    
-    class IdGen 
-    {
-        
-        static $id=0;
-        private $id_val;
-        function __construct() 
-        {
-            $this->id_val="hb_".self::$id;
-            self::$id++;
-        }
-        function getId()
-        {
-            return $this->id_val;
-        }
-    }
+    $cookie->doEssentials();
+
 ?>
 
