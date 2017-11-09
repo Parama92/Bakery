@@ -26,9 +26,11 @@
 
     App::bind('database', new QueryHandler($conn));
 
-    $cookie=CookieHandler::getInstance();
-    
-    $cookie->doEssentials();
-
+    if(!isset($_SESSION["user_id"]))
+    {
+        $cookie=CookieHandler::getInstance();
+        
+        $cookie->doEssentials();
+    }
 ?>
 
