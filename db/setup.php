@@ -1,15 +1,13 @@
 <?php
 
-    require_once 'Connection.php';
-    require_once 'App.php';
-    require_once 'QueryHandler.php';
-    require_once 'IdGen.php';
-    require_once "cookies/UpdateUser.php";
-    require_once "cookies/CookieHandler.php";
-    require_once "cookies/NewCookieHandler.php";
-    require_once "cookies/DisabledCookieHandler.php";
-    require_once "cookies/OldCookieHandler.php";
-
+    if(file_exists("vendor/autoload.php")){
+        require_once "vendor/autoload.php";
+    }
+    else
+    {
+        require_once "../vendor/autoload.php";
+    }
+    
     session_start();
 
     $now=time();
