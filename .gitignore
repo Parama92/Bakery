@@ -1,1 +1,7 @@
 nbproject/
+db/config.php
+db/mailconfig.php
+PHPMAILER-master/
+vendor/
+public/script.min.js
+public/style.min.js

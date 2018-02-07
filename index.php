@@ -11,7 +11,8 @@ and open the template in the editor.
 <html>
     <head>
         <?php require 'views/layout/head.php'; ?> 
-        <title>#Baked</title>
+        <title>#Baked - Order home made baked goodies</title>
+        <meta name="description" content="Hashtag baked is a home based bakery in Kolkata, providing a varity of baked goods like cakes, pastries and cup cakes among others. We are most well known for our brownies. We deliver to your doorstep. Cash on delivery is available.">
     </head>
     <body>
         <div class="container-fluid text-center">
@@ -34,7 +35,6 @@ and open the template in the editor.
         <?php
             include_once 'views/layout/footer.php';
         ?>
-        <script src="public/script.js"></script>
         <script>
             
             $(function(){
@@ -42,6 +42,8 @@ and open the template in the editor.
                 $("#menu").removeClass("active");
                 $("#gallery").removeClass("active");
                 $("#contact").removeClass("active");
+
+                $(".circle").css("display","none");
             });
             
         </script>

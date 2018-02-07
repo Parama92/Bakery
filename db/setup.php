@@ -18,6 +18,8 @@
         header("Location: index.php");
     }
     
+    $_SESSION['discard_after']=$now+3600*5;
+
     App::bind('config',require 'config.php');
     
     $conn=Connection::make(App::get('config'));

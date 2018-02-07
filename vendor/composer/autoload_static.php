@@ -8,7 +8,6 @@ class ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca
 {
     public static $classMap = array (
         'App' => __DIR__ . '/../..' . '/db/App.php',
-        'Checkout' => __DIR__ . '/../..' . '/checkout.php',
         'ComposerAutoloaderInit0a2320317e0d56901ea3bc99c66a2fca' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca' => __DIR__ . '/..' . '/composer/autoload_static.php',
@@ -18,8 +17,14 @@ class ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca
         'IdGen' => __DIR__ . '/../..' . '/db/IdGen.php',
         'NewCookieHandler' => __DIR__ . '/../..' . '/db/cookies/NewCookieHandler.php',
         'OldCookieHandler' => __DIR__ . '/../..' . '/db/cookies/OldCookieHandler.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/../..' . '/PHPMailer-master/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/../..' . '/PHPMailer-master/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/../..' . '/PHPMailer-master/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/../..' . '/PHPMailer-master/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/../..' . '/PHPMailer-master/src/SMTP.php',
         'QueryHandler' => __DIR__ . '/../..' . '/db/QueryHandler.php',
         'UpdateUser' => __DIR__ . '/../..' . '/db/cookies/UpdateUser.php',
+        'Validator' => __DIR__ . '/../..' . '/db/Validator.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

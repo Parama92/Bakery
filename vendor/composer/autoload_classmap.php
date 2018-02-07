@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App' => $baseDir . '/db/App.php',
-    'Checkout' => $baseDir . '/checkout.php',
     'ComposerAutoloaderInit0a2320317e0d56901ea3bc99c66a2fca' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca' => $vendorDir . '/composer/autoload_static.php',
@@ -17,6 +16,12 @@ return array(
     'IdGen' => $baseDir . '/db/IdGen.php',
     'NewCookieHandler' => $baseDir . '/db/cookies/NewCookieHandler.php',
     'OldCookieHandler' => $baseDir . '/db/cookies/OldCookieHandler.php',
+    'PHPMailer\\PHPMailer\\Exception' => $baseDir . '/PHPMailer-master/src/Exception.php',
+    'PHPMailer\\PHPMailer\\OAuth' => $baseDir . '/PHPMailer-master/src/OAuth.php',
+    'PHPMailer\\PHPMailer\\PHPMailer' => $baseDir . '/PHPMailer-master/src/PHPMailer.php',
+    'PHPMailer\\PHPMailer\\POP3' => $baseDir . '/PHPMailer-master/src/POP3.php',
+    'PHPMailer\\PHPMailer\\SMTP' => $baseDir . '/PHPMailer-master/src/SMTP.php',
     'QueryHandler' => $baseDir . '/db/QueryHandler.php',
     'UpdateUser' => $baseDir . '/db/cookies/UpdateUser.php',
+    'Validator' => $baseDir . '/db/Validator.php',
 );

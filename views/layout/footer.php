@@ -10,7 +10,7 @@
                 <p>Order whenever you feel like sweet goodness. We deliver between 10am and 7pm on weekends.</p>
             </div>
             <div class="col-sm-4">
-                <h5>| Consultation |</h5>
+                <h5>| Contact Us |</h5>
                 <div class="contacts">
                     <div class="row"><i class="fa fa-envelope" aria-hidden="true"></i>hashtagbaked@gmail.com</div>
                     <div class="row"><i class="fa fa-phone" aria-hidden="true"></i>+917044365624</div>
@@ -22,3 +22,4 @@
         </div>
     </div>
 </footer>
+<script src="public/script.js" async></script>

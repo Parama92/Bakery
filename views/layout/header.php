@@ -1,7 +1,7 @@
 <div class="header">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-9 spacing">
-            <h1><a href="index.php">Hashtag Baked</a></h1>
+            <p id="main-heading"><a href="index.php">Hashtag Baked</a></p>
             <hr id="underline">
         </div>
         <div class="col-sm-2 col-md-3 hidden-xs logo spacing">
@@ -18,7 +18,7 @@
                 <a href="index.php"><div class="col-xs-3  nav-item" id="home">HOME</div></a>
                 <a href="menu.php"><div class="col-xs-3 nav-item" id="menu">MENU</div></a>
                 <a href="gallery.php"><div class="col-xs-3 nav-item" id="gallery">GALLERY</div></a>
-                <a href="contact.php"><div class="col-xs-3 nav-item" id="contact">CONTACT</div></a>   
+                <a href="contact.php#contact-us"><div class="col-xs-3 nav-item" id="contact">CONTACT</div></a>   
             </div>
         </div>
     </div>
