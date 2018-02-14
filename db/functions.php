@@ -94,12 +94,10 @@
         if(isset($_COOKIE['id']))
         {
             $user_data=$_COOKIE['id'];
-            $expired='false';
         }
         elseif(isset($_SESSION["user_id"]))
         {
             $user_data=$_SESSION["user_id"];
-            $expired='true';
         }
         else
         {
@@ -109,7 +107,7 @@
         $cart_check=App::get('database')->runQuery("SELECT id,quantity FROM cart WHERE product_id=? AND feature_id=? AND user_data=?;",array($pid,$fid,$user_data));
         if(count($cart_check)==0)
         {
-            App::get('database')->runQuery("INSERT INTO cart (product_id,feature_id,user_data,expired) VALUES (?,?,?,?);",array($pid,$fid,$user_data,$expired));
+            App::get('database')->runQuery("INSERT INTO cart (product_id,feature_id,user_data) VALUES (?,?,?);",array($pid,$fid,$user_data));
         }
         else
         {

@@ -14,5 +14,5 @@
     $fav=array_column($fav,'favourite');
     
     require 'views/pages/menu.view.php';
-
+    
 ?>

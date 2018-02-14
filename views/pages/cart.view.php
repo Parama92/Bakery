@@ -64,7 +64,7 @@ and open the template in the editor.
                     </form>
                 <?php
                     }
-                    if(count($fav))
+                    if(isset($fav) && count($fav)>0)
                     {
                 ?>
                         <div class="row" id="fav_div">
