@@ -7,12 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App' => $baseDir . '/db/App.php',
+    'Cart' => $baseDir . '/db/Cart.php',
     'ComposerAutoloaderInit0a2320317e0d56901ea3bc99c66a2fca' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca' => $vendorDir . '/composer/autoload_static.php',
     'Connection' => $baseDir . '/db/Connection.php',
     'CookieHandler' => $baseDir . '/db/cookies/CookieHandler.php',
     'DisabledCookieHandler' => $baseDir . '/db/cookies/DisabledCookieHandler.php',
+    'Favourite' => $baseDir . '/db/Favourite.php',
     'IdGen' => $baseDir . '/db/IdGen.php',
     'NewCookieHandler' => $baseDir . '/db/cookies/NewCookieHandler.php',
     'OldCookieHandler' => $baseDir . '/db/cookies/OldCookieHandler.php',

@@ -9,18 +9,18 @@ $(function(){
         $(this).data('hidden',(hidden=="show"?"hide":"show"));
 
         var $display=$(this).css('color');
-        var file;
+        var action;
         if($display!=='rgb(255, 207, 191)')
         {
             makeFav($(this));
-            file="add_fav";
+            action="addFav";
         }
         else
         {
             removeFav($(this));
-            file="remove_fav";
+            action="removeFav";
         }
-        fav($(this).parent(),file);
+        fav($(this).parent(),action);
         
     });
 
@@ -57,16 +57,29 @@ $(function(){
         });
     }
 
-    function fav($node,file)
+    function fav($node,action)
     {
         $product=$node.siblings(".caption").children('p').first().text().trim();
+        data = 'prod=' +$product;
+
+        ajaxCall(action, data);
+    }
+
+    function ajaxCall(action, data, node = null)
+    {
         $.ajax({
             type:"GET",
-            url:"data_handlers/"+file+".php",
-            data: 'prod=' +$product,
+            url:"data_handler/data_handler.php",
+            data: data+"&action="+action,
             success: function(msg)
             {
-                console.log(msg);
+                if(node){
+                    quant = data.substr(data.lastIndexOf('=')+1);
+                    remove_node(node,quant);
+                }
+                else{
+                    console.log(msg);
+                }                
             }
         });
     }
@@ -169,15 +182,7 @@ $(function(){
 
         pop_up(text);
 
-        $.ajax({
-            type:"GET",
-            url:"data_handlers/cart_add.php",
-            data: 'value=' +val,
-            success: function(msg)
-            {
-                console.log(msg);
-            }
-        });
+        ajaxCall('addToCart', 'value=' +val);
     });
 
     function pop_up(text){
@@ -197,17 +202,9 @@ $(function(){
     function modify_cart(node,quant)
     {
         var node=node.parent().siblings('input');
-         var cid=node.val();
+        var cid=node.val();
 
-         $.ajax({
-             type:"GET",
-             url:"data_handlers/cart_change.php",
-             data: 'cid='+cid+'&quant='+quant,
-             success: function(msg)
-             {
-                 remove_node(node,quant);
-             }
-         });
+        ajaxCall('changeCart', 'cid='+cid+'&quant='+quant, node);
     }
 
     function remove_node(node,quant)

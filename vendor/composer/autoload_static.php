@@ -8,12 +8,14 @@ class ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca
 {
     public static $classMap = array (
         'App' => __DIR__ . '/../..' . '/db/App.php',
+        'Cart' => __DIR__ . '/../..' . '/db/Cart.php',
         'ComposerAutoloaderInit0a2320317e0d56901ea3bc99c66a2fca' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit0a2320317e0d56901ea3bc99c66a2fca' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Connection' => __DIR__ . '/../..' . '/db/Connection.php',
         'CookieHandler' => __DIR__ . '/../..' . '/db/cookies/CookieHandler.php',
         'DisabledCookieHandler' => __DIR__ . '/../..' . '/db/cookies/DisabledCookieHandler.php',
+        'Favourite' => __DIR__ . '/../..' . '/db/Favourite.php',
         'IdGen' => __DIR__ . '/../..' . '/db/IdGen.php',
         'NewCookieHandler' => __DIR__ . '/../..' . '/db/cookies/NewCookieHandler.php',
         'OldCookieHandler' => __DIR__ . '/../..' . '/db/cookies/OldCookieHandler.php',

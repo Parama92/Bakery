@@ -7,7 +7,7 @@
     {
         require_once "../vendor/autoload.php";
     }
-    
+
     session_start();
 
     $now=time();
@@ -20,17 +20,22 @@
     
     $_SESSION['discard_after']=$now+3600*5;
 
-    App::bind('config',require 'config.php');
-    
-    $conn=Connection::make(App::get('config'));
-
-    App::bind('database', new QueryHandler($conn));
-
     if(!isset($_SESSION["user_id"]))
     {
         $cookie=CookieHandler::getInstance();
         
         $cookie->doEssentials();
     }
+
+    App::bind('config',require 'config.php');
+    
+    $conn=Connection::make(App::get('config'));
+
+    App::bind('database', new QueryHandler($conn));
+
+    App::bind('cart', new Cart(App::get('database')));
+
+    App::bind('favourite', new Favourite(App::get('database')));
+
 ?>
 
